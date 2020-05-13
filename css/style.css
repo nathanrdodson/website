@@ -6,11 +6,9 @@
   .nrd-title {display: none; !important}
   .nrd-title2 {display: inline-block;}
 }
-
 .image-container {
   position: relative;
   text-align: center;
-  color: white;
 }
 .middle {
   position: absolute;
