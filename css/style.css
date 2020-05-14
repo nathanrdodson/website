@@ -10,6 +10,7 @@
   position: relative;
   text-align: center;
 }
+
 .middle {
   position: absolute;
   top: 50%;
@@ -17,37 +18,79 @@
   transform: translate(-50%, -50%);
 }
 
-/*.row {*/
-/*  display: flex;*/
-/*  flex-wrap: wrap;*/
-/*  padding: 0 6px;*/
-/*}*/
+.hovereffect {
+  width: 100%;
+  height: 100%;
+  float: left;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  cursor: default;
+}
 
-/* Create equal columns that sits next to each other */
-/*.column {*/
-/*  flex: 50%;*/
-/*  max-width: 50%;*/
-/*  padding: 0 6px;*/
-/*}*/
+.hovereffect .overlay {
+  position: absolute;
+  overflow: hidden;
+  width: 80%;
+  height: 80%;
+  left: 10%;
+  top: 10%;
+  border-bottom: 1px solid #FFF;
+  border-top: 1px solid #FFF;
+  -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s;
+  -webkit-transform: scale(0,1);
+  -ms-transform: scale(0,1);
+  transform: scale(0,1);
+}
 
-/*.column img {*/
-/*  margin-top: 8px;*/
-/*  vertical-align: middle;*/
-/*  width: 100%;*/
-/*}*/
+.hovereffect:hover .overlay {
+  opacity: 1;
+  filter: alpha(opacity=100);
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
+}
 
-/* Responsive layout - makes a two column-layout instead of four columns */
-/*@media screen and (max-width: 800px) {*/
-/*  .column {*/
-/*    flex: 50%;*/
-/*    max-width: 50%;*/
-/*  }*/
-/*}*/
+.hovereffect img {
+  display: block;
+  position: relative;
+  -webkit-transition: all 0.35s;
+  transition: all 0.35s;
+}
 
-/*!* Responsive layout - makes the two columns stack on top of each other instead of next to each other *!*/
-/*@media screen and (max-width: 600px) {*/
-/*  .column {*/
-/*    flex: 100%;*/
-/*    max-width: 100%;*/
-/*  }*/
-/*}*/
+.hovereffect:hover img {
+  filter: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg"><filter id="filter"><feComponentTransfer color-interpolation-filters="sRGB"><feFuncR type="linear" slope="0.6" /><feFuncG type="linear" slope="0.6" /><feFuncB type="linear" slope="0.6" /></feComponentTransfer></filter></svg>#filter');
+  filter: brightness(0.6);
+  -webkit-filter: brightness(0.6);
+}
+
+.hovereffect h2 {
+  text-align: center;
+  position: relative;
+  background-color: transparent;
+  color: #FFF;
+  padding: 1em 0;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s;
+  -webkit-transform: translate3d(0,-100%,0);
+  transform: translate3d(0,-100%,0);
+}
+
+.hovereffect .btn {  
+  opacity: 0;
+  filter: alpha(opacity=0);
+  -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s;
+  -webkit-transform: translate3d(0,100%,0);
+  transform: translate3d(0,100%,0);
+}
+
+.hovereffect:hover .btn, .hovereffect:hover h2 {
+  opacity: 1;
+  filter: alpha(opacity=100);
+  -webkit-transform: translate3d(0,0,0);
+  transform: translate3d(0,0,0);
+}
